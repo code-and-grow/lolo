@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PopUpModal from './components/PopUpModal';
 import TimeSince from './components/TimeSince';
 import { proxyUrl, rssUrl } from './utilities/constants';
 
@@ -8,7 +9,17 @@ class App extends Component {
 
   // Initialize state
   state = { 
-    articles: []
+    articles: [],
+    openUrl: '',
+    modalOpen: false
+  };
+
+  // Toggle popup modal state and get article url for popup
+  toggleModal = (url) => {
+    this.setState({
+      openUrl: url,
+      modalOpen: !this.state.modalOpen
+    });
   };
 
   // Start RSS feed fetch after component mount
@@ -47,6 +58,7 @@ class App extends Component {
     const { articles } = this.state;
     return (
       <div className="App">
+        {this.state.modalOpen ? <PopUpModal openUrl={this.state.openUrl} toggle={() => this.toggleModal('')} /> : null}
         <header>
           <div className="header">
             <a href="/">
