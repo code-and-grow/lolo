@@ -69,25 +69,23 @@ class App extends Component {
         </header>
         <main className="main">
           {articles.length ? (
-            <div>
-              <section className="archive">
-              {this.state.articles.map((item, i) => {
-                return (
-                  <article className="article" key={i}>
-                    <img className="card-image" src={item.image} alt="" onClick={() => this.toggleModal(item.url)}></img>
-                    <h2 onClick={() => this.toggleModal(item.url)}>
-                      { item.title }
-                    </h2>
-                    { item.author && <small className="article-author-small"><em>By { item.author }</em></small> }
-                    { item.date && <small><TimeSince date={ item.date } /></small> }
-                    <p onClick={() => this.toggleModal(item.url)}>
-                      { item.description }
-                    </p>
-                  </article>
-                );
-              })}
-              </section>
-            </div>
+            <section className="archive">
+            {this.state.articles.map((item, i) => {
+              return (
+                <article className="article" key={i}>
+                  <img className="card-image" src={item.image} alt="" onClick={() => this.toggleModal(item.url)}></img>
+                  <h2 onClick={() => this.toggleModal(item.url)}>
+                    { item.title }
+                  </h2>
+                  { item.author && <small className="article-author-small"><em>By { item.author }</em></small> }
+                  { item.date && <small><TimeSince date={ item.date } /></small> }
+                  <p onClick={() => this.toggleModal(item.url)}>
+                    { item.description }
+                  </p>
+                </article>
+              );
+            })}
+            </section>
           ) : (
             <div>
               <img className="loader" src="img/loading.gif" alt=""></img>
