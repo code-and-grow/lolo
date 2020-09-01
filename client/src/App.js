@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import PopUpModal from './components/PopUpModal';
 import TimeSince from './components/TimeSince';
 import { proxyUrl, rssUrl } from './utilities/constants';
-
 import './App.css';
 
 class App extends Component {
 
-  // Initialize state
+  // Initialize component state
   state = { 
     articles: [],
     openUrl: '',
@@ -53,19 +52,24 @@ class App extends Component {
     request.open("GET", proxyUrl + rssUrl, true);
     request.send();
   }
+
   // Render app
   render() {
     const { articles } = this.state;
     return (
       <div className="App">
+        {/* Popup modal section  */}
         {this.state.modalOpen ? <PopUpModal openUrl={this.state.openUrl} toggle={() => this.toggleModal('')} /> : null}
+        {/* Header section */}
         <header>
           <div className="header">
             <a href="/">
               <img className="brand" src="img/lolo_news.png" alt=""></img>
+              <h1>Lolo News</h1>
             </a>
           </div>
         </header>
+        {/* Main section  */}
         <main className="main">
           {articles.length ? (
             // Render articles when fetch successful

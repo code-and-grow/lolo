@@ -3,16 +3,19 @@ import TimeSince from './TimeSince';
 
 export default class PopUpModal extends React.Component {
 
+  // Initialize component state
   state = { 
     loading: true,
     article: {},
   };
 
+  // Handle modal close
   handleClick = () => {
    this.props.toggle('');
   };
 
   componentDidMount() {
+    // Save article data to state
     fetch('/get_parsed_article', {
       method: 'POST',
       body: JSON.stringify({ url: this.props.openUrl }),
@@ -31,7 +34,7 @@ export default class PopUpModal extends React.Component {
   render() {
     return (
       // Popup modal starts
-      <div className="modal">
+      <div className="modal" tabindex="0" role="complementary">
         <div className="modal_content">
           <div className="close" onClick={this.handleClick}><b>&#88; Close</b></div>
           {this.state.loading ? (
