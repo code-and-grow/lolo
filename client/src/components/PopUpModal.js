@@ -44,7 +44,7 @@ export default class PopUpModal extends React.Component {
             <div>
               <img src={ this.state.article.lead_image_url } alt=""></img>
               <h1>{ this.state.article.title }</h1>
-              { this.state.article.author && <small className="article-author-small"><em>By { this.state.article.author }</em></small> }
+              { this.state.article.author && <small className="article-author-small"><em>By { this.state.article.author }</em><br></br></small> }
               { this.state.article.date_published && <small><TimeSince date={ this.state.article.date_published } /></small> }
               <p>{ this.state.article.content }</p>
             </div>
