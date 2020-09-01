@@ -33,17 +33,14 @@ export default class PopUpModal extends React.Component {
   
   render() {
     return (
-      // Popup modal starts
       <div className="modal" tabindex="0" role="complementary">
         <div className="modal_content">
           <div className="close" onClick={this.handleClick}><b>&#88; Close</b></div>
           {this.state.loading ? (
-            // Show loader while fetching article data
             <div className="loader">
               <img src="img/loading.gif" alt=""></img>
             </div>
           ) : (
-            // Render articles when fetch successful
             <div>
               <img src={ this.state.article.lead_image_url } alt=""></img>
               <h1>{ this.state.article.title }</h1>

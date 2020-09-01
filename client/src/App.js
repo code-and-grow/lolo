@@ -58,9 +58,7 @@ class App extends Component {
     const { articles } = this.state;
     return (
       <div className="App">
-        {/* Popup modal section  */}
         {this.state.modalOpen ? <PopUpModal openUrl={this.state.openUrl} toggle={() => this.toggleModal('')} /> : null}
-        {/* Header section */}
         <header>
           <div className="header">
             <a href="/">
@@ -69,10 +67,8 @@ class App extends Component {
             </a>
           </div>
         </header>
-        {/* Main section  */}
         <main className="main">
           {articles.length ? (
-            // Render articles when fetch successful
             <div>
               <section className="archive">
               {this.state.articles.map((item, i) => {
@@ -93,7 +89,6 @@ class App extends Component {
               </section>
             </div>
           ) : (
-            // Show loader while fetching data
             <div>
               <img className="loader" src="img/loading.gif" alt=""></img>
             </div>
