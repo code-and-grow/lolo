@@ -1,38 +1,118 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #dddddd;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  padding: 0.5em 0.5em 0.25em;
+  background-color: #3f3f3f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.header {
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+img.brand {
+  height: 60px;
+  display: inline-block;
+}
+
+.main {
+  padding: 1em;
+  margin: 0 auto;
+  text-align: left;
+  max-width: 1180px;
+}
+
+.archive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+}
+
+.article {
+  padding: 1em;
+  background: #fff;
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.1),
+    0 20px 20px rgba(0, 0, 0, 0.05);
+}
+
+.article a {
+  text-decoration: none;
+  color: #3f3f3f;
+}
+
+.article a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.article h2,
+.article p {
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
+
+.article h2 {
+  margin-top: 0;
+  margin-bottom: 7px;
+  margin-left: calc(25% + 1.25em);
+}
+
+.article h2:hover,
+.article p:hover,
+.article img:hover {
+  cursor: pointer;
+}
+
+.article p,
+.article .article-author-small {
+  display: none;
+}
+
+.article .card-image {
+  width: 25%;
+  float: left;
+  margin-top: 0;
+  margin-right: 1em;
+}
+
+.article small {
+  display: block;
+  margin-left: calc(25% + 1.45em);
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 528px) {
+  .archive {
+    gap: 1em;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .article {
+    padding: 1em 1em 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .article h2 {
+    margin-left: 0;
+  }
+
+  .article p,
+  .article .article-author-small {
+    display: block;
+  }
+
+  .article .card-image {
+    width: 50%;
+    float: right;
+    margin-right: 0;
+    padding-left: 1em;
+    padding-bottom: 0.15em;
+  }
+
+  .article small {
+    margin-left: 0;
   }
 }
